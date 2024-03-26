@@ -18,7 +18,7 @@
     justify-content: space-between;
 }
 
-.statusInfo {
+.contentStatus {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,11 +31,11 @@
     cursor: pointer;
 }
 
-.statusInfo:hover {
+.contentStatus:hover {
     background-color: #dfdfdf;
 }
 
-.statusInfo div {
+.contentStatus div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,36 +47,36 @@
 }
 
 
-.statusInfo div svg {
+.contentStatus div svg {
     height: 23px;
     width: 23px;
     fill: #fff;
 }
 
-.statusInfo:nth-child(1) div {
+.contentStatus:nth-child(1) div {
     background-color: #19F214;
 }
 
-.statusInfo:nth-child(2) div {
+.contentStatus:nth-child(2) div {
     background-color: #EEF214;
 }
 
-.statusInfo:nth-child(3) div {
+.contentStatus:nth-child(3) div {
     background-color: #14A2F2;
 }
 
-.statusInfo:nth-child(4) div {
+.contentStatus:nth-child(4) div {
     background-color: #8C3EF0;
 }
 
-.statusInfo p {
+.contentStatus p {
     font-size: var(--text-font-sm);
     color: var(--font-color-gray-400);
     font-weight: 600;
     letter-spacing: .5px;
 }
 
-.statusInfo span {
+.contentStatus span {
     font-size: var(--text-font-3xl);
     font-weight: 600;
     color: var(--font-color-gray-700)

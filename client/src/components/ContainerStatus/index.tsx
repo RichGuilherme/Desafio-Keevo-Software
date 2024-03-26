@@ -10,7 +10,7 @@ export const ContainerStatus = () => {
     return (
         <div className={style.containerStatus}>
             <div className={style.divStatus}>
-                <div className={style.statusInfo}>
+                <div className={style.contentStatus}>
                     <div>
                         <CheckIcon />
                     </div>
@@ -19,7 +19,7 @@ export const ContainerStatus = () => {
                     <span>5</span>
                 </div>
 
-                <div className={style.statusInfo}>
+                <div className={style.contentStatus}>
                     <div>
                         <ProgressIcon />
                     </div>
@@ -28,7 +28,7 @@ export const ContainerStatus = () => {
                     <span>2</span>
                 </div>
 
-                <div className={style.statusInfo}>
+                <div className={style.contentStatus}>
                     <div>
                         <StartIcon />
                     </div>
@@ -37,7 +37,7 @@ export const ContainerStatus = () => {
                     <span>4</span>
                 </div>
 
-                <div className={style.statusInfo}>
+                <div className={style.contentStatus}>
                     <div>
                         <PauseIcon />
                     </div>
