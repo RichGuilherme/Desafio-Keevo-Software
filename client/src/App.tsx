@@ -1,9 +1,12 @@
-import './App.css'
+import "./App.css"
+import { Home } from "./page/Home"
+
 
 function App() {
 
+  
   return (
-    <h1>Teste</h1>
+    <Home/>
   )
 }
 
