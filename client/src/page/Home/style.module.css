@@ -1,5 +1,5 @@
 main {
-    background: var(--primary-bg-color);
+    background-color: var(--primary-bg-color);
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -23,4 +23,16 @@ header {
     font-weight: 800;
     letter-spacing: 1.5px;
     color: var(--title-primary-color)
+}
+
+section {
+    width: 100%;
+    max-width: var(--max-container-width);
+    height: 100%;
+
+    margin-inline: auto;
+    border-radius: 15px;
+    padding: 4.0rem;
+
+    background-color: var(--secondary-bg-color);
 }
