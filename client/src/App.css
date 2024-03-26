@@ -30,12 +30,25 @@ li{
 }
 
 :root {
+  /* colors */
   --primary-bg-color: #280E37;
   --secondary-bg-color: #F1F1F1;
   --title-primary-color: #FF9900;
   --title-secondary-color: #6414D2;
-  --font-color-black: #293B55;
-  --font-color-white: #9AA3B7;
-  --text-font-size: 13px;
-  --max-container-width: 1050px;
+
+  /* font color */
+  --font-color-gray-700: #293B55;
+  --font-color-gray-300: #9AA3B7;
+  --font-color-gray-400: #6E7687;
+
+  /* container */
+  --max-container-width: 1240px;
+
+  /* fonts size*/
+  --text-font-sm: 13px;
+  --text-font-base: 16px;
+  --text-font-lg: 18px;
+  --text-font-xl: 20px;
+  --text-font-2xl: 24px;
+  --text-font-3xl: 30px;
 }
