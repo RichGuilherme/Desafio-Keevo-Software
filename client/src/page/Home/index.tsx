@@ -1,4 +1,5 @@
 import logo from "../../assets/Logo keevo sofware.png"
+import { ContainerStatus } from "../../components/ContainerStatus"
 import styles from "./style.module.css"
 
 export const Home = () => {
@@ -16,7 +17,7 @@ export const Home = () => {
       </header>
 
       <section >
-
+        <ContainerStatus />
       </section>
     </main>
   )
