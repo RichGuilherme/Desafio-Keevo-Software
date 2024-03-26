@@ -10,12 +10,12 @@ export const Home = () => {
           src={logo}
           alt="Logo da empresa" />
 
-        <h1 className={styles.title}>
+        <h1 className={styles.titleHome}>
           Lista De Terefas
         </h1>
       </header>
 
-      <section className={""}>
+      <section >
 
       </section>
     </main>
