@@ -7,6 +7,11 @@
   font-family: "Inter", sans-serif;
 }
 
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 :root {
   --primary-bg-color: #280E37;
   --secondary-bg-color: #F1F1F1;
