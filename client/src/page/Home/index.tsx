@@ -1,5 +1,5 @@
 import logo from "../../assets/Logo keevo sofware.png"
-import { ContainerListTasks } from "../../components/ContainerListTasks"
+import {  TaskSection } from "../../components/TaskSection"
 import { ContainerStatus } from "../../components/ContainerStatus"
 import styles from "./style.module.css"
 
@@ -19,7 +19,7 @@ export const Home = () => {
 
       <section >
         <ContainerStatus />
-        <ContainerListTasks />
+        <TaskSection />
       </section>
     </main>
   )
