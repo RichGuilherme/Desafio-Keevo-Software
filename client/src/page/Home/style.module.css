@@ -13,12 +13,12 @@ header {
     padding: 0.7rem 2.0rem;
 }
 
-.logoImg {
+.home__logoImg {
     height: 10.4rem;
     width: 11.1rem;
 }
 
-.titleHome {
+.home__title {
     font-size: 4.0rem;
     font-weight: 800;
     letter-spacing: 1.5px;

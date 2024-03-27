@@ -5,10 +5,10 @@ import style from "./style.module.css"
 
 export const TaskControls = () => {
   return (
-    <div className={style.taksControls}>
+    <div className={style.task__controls}>
     <p>Tarefas:</p>
 
-    <div className={style.filterForm}>
+    <div className={style.task__filterForm}>
         <div>
             <p>Ordernar por</p>
             <ArrowDownIcon />

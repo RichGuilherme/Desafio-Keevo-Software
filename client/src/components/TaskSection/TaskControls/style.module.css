@@ -1,23 +1,23 @@
 
-.taksControls {
+.task__controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.taksControls > p {
+.task__controls > p {
     font-size: var(--text-font-2xl);
     color: var( --font-secondary-color);
     font-weight: 700;
     letter-spacing: .5px;
 }
 
-.filterForm {
+.task__filterForm {
     display: flex;
     gap: 5.5rem;
 }
 
-.filterForm div {
+.task__filterForm div {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -26,17 +26,17 @@
     cursor: pointer;
 }
 
-.filterForm div p {
+.task__filterForm div p {
     font-size: calc(var(--text-font-sm) + 1px);
     letter-spacing: var(--letter-space);
 }
 
-.filterForm div svg {
+.task__filterForm div svg {
     height: 2.4rem;
     width: 2.4rem;
 }
 
-.filterForm button {
+.task__filterForm button {
     display: flex;
     align-items: center;
     gap: 5px;
