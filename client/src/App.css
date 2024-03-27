@@ -34,9 +34,10 @@ li{
   --primary-bg-color: #280E37;
   --secondary-bg-color: #F1F1F1;
   --title-primary-color: #FF9900;
-  --title-secondary-color: #6414D2;
+  --button-bg-color: #EDEFF2;
 
   /* font color */
+  --font-secondary-color: #6414D2;
   --font-color-gray-700: #293B55;
   --font-color-gray-300: #9AA3B7;
   --font-color-gray-400: #6E7687;
@@ -51,4 +52,5 @@ li{
   --text-font-xl: 20px;
   --text-font-2xl: 24px;
   --text-font-3xl: 30px;
+  --letter-space: .5px;
 }
