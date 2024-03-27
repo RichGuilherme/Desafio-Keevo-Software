@@ -35,6 +35,7 @@ li{
   --secondary-bg-color: #F1F1F1;
   --title-primary-color: #FF9900;
   --button-bg-color: #EDEFF2;
+  --font-secondary-color-hover: #ecdeff;
 
   /* font color */
   --font-secondary-color: #6414D2;
@@ -53,4 +54,11 @@ li{
   --text-font-2xl: 24px;
   --text-font-3xl: 30px;
   --letter-space: .5px;
+
+  /* breakpointes media query */
+  --breakpoint-width-sm: 640px;
+  --breakpoint-width-md: 768px;
+  --breakpoint-width-lg: 1024px;
+  --breakpoint-width-xl: 1280px;
+  --breakpoint-width-2xl: 1568px;
 }
