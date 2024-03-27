@@ -1,0 +1,5 @@
+.c_painelTask {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 35px;
+}

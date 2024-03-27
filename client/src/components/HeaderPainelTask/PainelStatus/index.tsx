@@ -1,16 +1,16 @@
-import { CheckIcon } from "../../icons/CheckIcon"
-import { PauseIcon } from "../../icons/PauseIcon"
-import { ProgressIcon } from "../../icons/ProgressIcon"
-import { StartIcon } from "../../icons/StartIcon"
+import { CheckIcon } from "../../../icons/CheckIcon"
+import { PauseIcon } from "../../../icons/PauseIcon"
+import { ProgressIcon } from "../../../icons/ProgressIcon"
+import { StartIcon } from "../../../icons/StartIcon"
 
 import style from "./style.module.css"
 
-export const ContainerStatus = () => {
+export const PainelStatus = () => {
 
     return (
-        <div className={style.containerStatus}>
-            <div className={style.divStatus}>
-                <div className={style.contentStatus}>
+        <div className={style.statusPainel}>
+            <div className={style.c_statusPainel}>
+                <div className={style.status__content}>
                     <div>
                         <CheckIcon />
                     </div>
@@ -19,7 +19,7 @@ export const ContainerStatus = () => {
                     <span>5</span>
                 </div>
 
-                <div className={style.contentStatus}>
+                <div className={style.status__content}>
                     <div>
                         <ProgressIcon />
                     </div>
@@ -28,7 +28,7 @@ export const ContainerStatus = () => {
                     <span>2</span>
                 </div>
 
-                <div className={style.contentStatus}>
+                <div className={style.status__content}>
                     <div>
                         <StartIcon />
                     </div>
@@ -37,7 +37,7 @@ export const ContainerStatus = () => {
                     <span>4</span>
                 </div>
 
-                <div className={style.contentStatus}>
+                <div className={style.status__content}>
                     <div>
                         <PauseIcon />
                     </div>
