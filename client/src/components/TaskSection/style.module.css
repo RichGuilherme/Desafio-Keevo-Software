@@ -1,0 +1,6 @@
+.taskSection {
+    width: min(100%, 108.0rem);
+
+    margin-top: 4.0rem;
+    margin-inline: auto;
+}
