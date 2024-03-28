@@ -1,0 +1,60 @@
+.modalSection {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.c_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+
+    padding-inline: 18px;
+
+    transform: translate(-50%, -50%);
+
+    /* border-radius: 29px; */
+    /* background: white; */
+}
+
+.c_modal header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 20px 20px 0 0;
+    padding: 2.9rem 3.9rem 0.6rem 3.9rem;
+
+    background-color: var(--color-white);
+    width: 100%;
+}
+
+.c_modal header h1 {
+    font-size: var(--text-font-xl);
+    color: var(--font-color-gray-800);
+    font-weight: 700;
+
+}
+
+.c_modal header svg path{
+    fill: var(--font-color-gray-800);
+}
+
+.c_modal header button svg {
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.c_modal header > button {
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
