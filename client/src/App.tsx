@@ -2,9 +2,7 @@ import "./App.css"
 import { Home } from "./page/Home"
 
 
-function App() {
-
-  
+function App() {  
   return (
     <Home/>
   )
