@@ -1,0 +1,22 @@
+.userWelcome {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userWelcome__username p{
+   font-size: var(--text-font-base);
+   font-weight: 600;
+   letter-spacing: var(--letter-space);
+   color: var(--font-color-gray-700)
+}
+
+.userWelcome__username span::first-letter{
+    text-transform: uppercase;
+}
+
+.userWelcome__date span{
+   font-size: var(--text-font-sm);
+   font-weight: 300;
+   color: var(--font-color-gray-400);
+}
