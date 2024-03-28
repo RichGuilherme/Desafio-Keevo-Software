@@ -1,0 +1,32 @@
+.modal__newTask {
+    width: 100%;
+    height: auto;
+
+    padding: 30px 38px;
+    border-radius: 0 0 20px 20px;
+    background-color: var(--color-white);
+}
+
+.form__newTask {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form__newTask > label p {
+    margin-bottom: 9px;
+
+    color: var(--font-color-gray-400);
+    font-size: calc(var(--text-font-sm));
+    letter-spacing: var(--letter-space);
+}
+
+.form__newTask > label input[type="text"]{
+    width: 100%;
+    
+    padding: 7px 10px;
+
+    border-radius: 11px;
+    border: 1px solid var(--font-color-gray-400);
+    outline: none;
+}

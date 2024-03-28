@@ -1,24 +1,42 @@
+import { useState } from "react"
 import { ArrowDownIcon } from "../../../icons/ArrowDownIcon"
 import { PlusIcon } from "../../../icons/PlusIcon"
+import { Modal } from "../../Modal"
+import { ModalNewTask } from "./ModalNewTask"
 
 import style from "./style.module.css"
 
 export const TaskControls = () => {
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+
+  const openModalNewTask = () => {
+    setIsOpenModal(true)
+  }
+
   return (
     <div className={style.task__controls}>
-    <p>Tarefas:</p>
+      <p>Tarefas:</p>
 
-    <div className={style.task__filterForm}>
+      <div className={style.task__filterForm}>
         <div>
-            <p>Ordernar por</p>
-            <ArrowDownIcon />
+          <p>Ordernar por</p>
+          <ArrowDownIcon />
         </div>
 
-        <button>
-            <PlusIcon />
-            Nova Tarefa
+        <button onClick={openModalNewTask}>
+          <PlusIcon />
+          Nova Tarefa
         </button>
+      </div>
+
+      <Modal
+        modalTitle="Nova Tarefa"
+        isOpen={isOpenModal}
+        handleClose={() => setIsOpenModal(false)}
+        maxWidth={690}>
+        <ModalNewTask />
+      </Modal>
     </div>
-</div>
+
   )
 }
