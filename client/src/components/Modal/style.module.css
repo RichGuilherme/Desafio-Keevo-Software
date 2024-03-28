@@ -37,7 +37,7 @@
 }
 
 .c_modal header h1 {
-    font-size: var(--text-font-xl);
+    font-size: var(--font-size-xl);
     color: var(--font-color-gray-800);
     font-weight: 700;
 

@@ -6,7 +6,7 @@
 }
 
 .task__controls > p {
-    font-size: var(--text-font-2xl);
+    font-size: var(--font-size-2xl);
     color: var( --font-secondary-color);
     font-weight: 700;
     letter-spacing: .5px;
@@ -27,7 +27,7 @@
 }
 
 .task__filterForm div p {
-    font-size: calc(var(--text-font-sm) + 1px);
+    font-size: calc(var(--font-size-sm) + 1px);
     letter-spacing: var(--letter-space);
 }
 
@@ -48,9 +48,14 @@
     background-color: var(--font-secondary-color);
 
     color: #fff;
-    font-size: var(--text-font-base);
+    font-size: var(--font-size-base);
     font-weight: 600;
     letter-spacing: .5px;
 
     cursor: pointer;
+}
+
+.task__filterForm button svg {
+    height: 1.6rem;
+    width: 1.6rem;
 }

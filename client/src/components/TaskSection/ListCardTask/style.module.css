@@ -29,7 +29,7 @@
 
 .task__card div :is(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:first-child {
     color: var(--font-color-gray-300);
-    font-size: calc(var(--text-font-sm) - 1px);
+    font-size: calc(var(--font-size-sm) - 1px);
     letter-spacing: var(--letter-space);
     white-space: nowrap;
 
@@ -38,7 +38,7 @@
 
 .task__card div :where(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:last-child {
     color: var(--font-color-gray-700);
-    font-size: calc(var(--text-font-base) - 1px);
+    font-size: calc(var(--font-size-base) - 1px);
     letter-spacing: var(--letter-space);
 }
 
@@ -76,10 +76,12 @@
 
 .task__cardActions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 .task__cardActions svg{
     cursor: pointer;
+    height: 2.0rem;
+    width: 2.0rem;
 }
 
 .task__cardStatus {
@@ -87,7 +89,7 @@
     border-radius: 7px;
     background-color: var(--button-bg-color);
 
-    font-size: var(--text-font-sm);
+    font-size: var(--font-size-sm);
     font-weight: 500;
 }
 

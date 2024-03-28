@@ -70,14 +70,14 @@
 }
 
 .status__content p {
-    font-size: var(--text-font-sm);
+    font-size: var(--font-size-sm);
     color: var(--font-color-gray-400);
     font-weight: 600;
     letter-spacing: .5px;
 }
 
 .status__content span {
-    font-size: var(--text-font-3xl);
+    font-size: var(--font-size-3xl);
     font-weight: 600;
     color: var(--font-color-gray-700)
 }

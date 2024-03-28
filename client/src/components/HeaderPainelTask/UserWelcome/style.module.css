@@ -5,7 +5,7 @@
 }
 
 .userWelcome__username p{
-   font-size: var(--text-font-base);
+   font-size: var(--font-size-base);
    font-weight: 600;
    letter-spacing: var(--letter-space);
    color: var(--font-color-gray-700)
@@ -16,7 +16,7 @@
 }
 
 .userWelcome__date span{
-   font-size: var(--text-font-sm);
+   font-size: var(--font-size-sm);
    font-weight: 300;
    color: var(--font-color-gray-400);
 }

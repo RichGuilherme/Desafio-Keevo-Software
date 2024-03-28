@@ -50,12 +50,12 @@ li{
   --max-container-width: 1240px;
 
   /* fonts size*/
-  --text-font-sm: 13px;
-  --text-font-base: 16px;
-  --text-font-lg: 18px;
-  --text-font-xl: 20px;
-  --text-font-2xl: 24px;
-  --text-font-3xl: 30px;
+  --font-size-sm: 13px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
   --letter-space: .5px;
 
   /* breakpointes media query */

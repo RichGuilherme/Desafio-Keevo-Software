@@ -1,0 +1,12 @@
+.deleteTask {
+    background-color: var(--color-white);
+
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deleteTask p {
+    font-size: var(--text-);
+}
