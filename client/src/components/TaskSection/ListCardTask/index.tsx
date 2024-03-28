@@ -1,4 +1,4 @@
-import { CrossMarkIcon } from "../../../icons/CrossMarkIcon"
+import { BinIcon } from "../../../icons/BinIcon"
 import { EditIcon } from "../../../icons/EditIcon"
 import style from "./style.module.css"
 
@@ -36,7 +36,7 @@ export const ListCardTask = () => {
 
                     <div className={style.task__cardActions}>
                         <EditIcon />
-                        <CrossMarkIcon />
+                        <BinIcon/>
                     </div>
                 </div>
             </div>
