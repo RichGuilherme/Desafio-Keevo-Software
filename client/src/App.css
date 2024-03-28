@@ -34,11 +34,14 @@ li{
   --primary-bg-color: #280E37;
   --secondary-bg-color: #F1F1F1;
   --title-primary-color: #FF9900;
+  --color-white: #fff;
+  --color-black: #000;
   --button-bg-color: #EDEFF2;
   --font-secondary-color-hover: #ecdeff;
 
   /* font color */
   --font-secondary-color: #6414D2;
+  --font-color-gray-800: #192434;
   --font-color-gray-700: #293B55;
   --font-color-gray-300: #9AA3B7;
   --font-color-gray-400: #6E7687;
