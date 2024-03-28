@@ -5,8 +5,8 @@ import { HeaderPainelTask } from "../../components/HeaderPainelTask"
 
 export const Home = () => {
   return (
-    <main>
-      <header>
+    <main className={styles.home__main}>
+      <header className={styles.home__header}>
         <img
           className={styles.home__logoImg}
           src={logo}
@@ -17,7 +17,7 @@ export const Home = () => {
         </h1>
       </header>
 
-      <section >
+      <section className={styles.home__section} >
         <HeaderPainelTask/>
         <TaskSection />
       </section>

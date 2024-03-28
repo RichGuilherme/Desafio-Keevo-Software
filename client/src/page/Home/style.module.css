@@ -1,11 +1,11 @@
-main {
+.home__main {
     background-color: var(--primary-bg-color);
     height: 100vh;
     width: 100%;
     overflow: hidden;
 }
 
-header {
+.home__header {
     display: flex;
     align-items: center;
     gap: 7px;
@@ -25,7 +25,7 @@ header {
     color: var(--title-primary-color)
 }
 
-section {
+.home__section {
     width: 100%;
     max-width: var(--max-container-width);
     height: 100%;
