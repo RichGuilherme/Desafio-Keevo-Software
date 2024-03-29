@@ -1,0 +1,124 @@
+.modal__newTask {
+    width: 100%;
+    height: auto;
+
+    padding: 3.0rem 3.8rem;
+    border-radius: 0 0 20px 20px;
+    background-color: var(--color-white);
+}
+
+.form__newTask {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+
+    position: relative;
+}
+
+.form__newTask div label {
+    margin-bottom: .9rem;
+
+    color: var(--font-color-gray-400);
+    font-size: calc(var(--font-size-sm));
+    letter-spacing: var(--letter-space);
+}
+
+.form__newTask button {
+    max-width: 13.0rem;
+
+    margin-top: 2.6rem;
+    padding: 1rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+
+    background-color: var(--font-secondary-color);
+
+    color: #fff;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+}
+
+.status__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.status__form select {
+    width: 23.8rem;
+
+    background-color: #0000;
+
+    padding: 5px 2px;
+    border: 1px solid var(--font-color-gray-700);
+    border-radius: 5px;
+
+    line-height: 1;
+    color: var(--font-color-gray-800);
+}
+
+.status__form select option {
+    padding: 20px 1px;
+}
+
+.status__form select:focus-visible {
+    outline: none;
+}
+
+
+.priority__button {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+
+    margin-top: .9rem;
+}
+
+.priorityItem {
+    min-width: 8.7rem;
+    text-align: center;
+    padding: .5rem 1.6rem;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+    cursor: pointer;
+
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: inherit;
+}
+
+.priorityItem__hard {
+    border: 1px solid var(--font-color-priority-hard);
+    color: var(--font-color-priority-hard);
+}
+
+.selected__hard {
+    background-color: var(--font-color-priority-hard);
+    color: #fff;
+}
+
+.priorityItem__medium {
+    border: 1px solid var(--font-color-priority-medium);
+    color: var(--font-color-priority-medium);
+}
+
+.selected__medium {
+    background-color: var(--font-color-priority-medium);
+    color: #fff;
+}
+
+.priorityItem__low {
+    border: 1px solid var(--font-color-priority-low);
+    color: var(--font-color-priority-low);
+}
+
+.selected__low {
+    background-color: var(--font-color-priority-low);
+    color: #fff;
+}

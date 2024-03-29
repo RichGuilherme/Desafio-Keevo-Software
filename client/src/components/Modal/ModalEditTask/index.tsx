@@ -4,17 +4,16 @@ import { FormInput } from "../../FormInput"
 
 interface PropsModalNewTask {
     setIsOpenModal: (any: boolean) => void
-    method?: string
-    idTask?: string
-    buttonText: string
+    idTask: string
 }
 
-export const ModalAddEditTask = ({setIsOpenModal, buttonText}: PropsModalNewTask) => {
-    const [prioritySelected, setPrioritySelected] = useState<string>("baixa")
+export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
+    const [prioritySelected, setPrioritySelected] = useState<string>("low")
     const [values, setValues] = useState({
         task: "",
         dateEnd: "",
-        priority: "baixa"
+        status: "pending",
+        priority: "low"
     })
 
     const today = new Date()
@@ -48,8 +47,12 @@ export const ModalAddEditTask = ({setIsOpenModal, buttonText}: PropsModalNewTask
         setValues({ ...values, priority: priorityProps })
     }
 
-    const HandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValues({ ...values, [e.target.name]: e.target.value })
+    }
+
+    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setValues({ ...values, [e.target.name]: e.target.value })
     }
 
     const handleSubmitTask = (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,44 +63,54 @@ export const ModalAddEditTask = ({setIsOpenModal, buttonText}: PropsModalNewTask
     }
 
     return (
-        <div className={style.modal__newTask}>
+        <div className={style.modal__editTask}>
             <form
                 onSubmit={handleSubmitTask}
-                className={style.form__newTask}
+                className={style.form__editTask}
             >
                 {inputsForm.map((input) => (
                     <FormInput
                         key={input.id}
                         label={input.label}
                         inputAttribute={input.inputAttribute}
-                        onChange={HandleChange}
+                        onChange={handleInputChange}
                     />
                 ))}
+
+                <div className={style.status__form}>
+                    <label>Status da tarefa</label>
+
+                    <select name="status" onChange={handleSelectChange}>
+                        <option value="pending">Pendente</option>
+                        <option value="inProgress">Em desenvolvimento</option>
+                        <option value="completed">Concluída</option>
+                    </select>
+                </div>
 
                 <div className={style.priority__form}>
                     <label>Prioridade</label>
 
                     <div className={style.priority__button}>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "alta" ? style.selected__hard : ""}`}
-                            onClick={() => handlePriorityClick("alta")}>
+                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "hard" ? style.selected__hard : ""}`}
+                            onClick={() => handlePriorityClick("hard")}>
                             Alta
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "media" ? style.selected__medium : ""}`}
-                            onClick={() => handlePriorityClick("media")}>
+                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "medium" ? style.selected__medium : ""}`}
+                            onClick={() => handlePriorityClick("medium")}>
                             Média
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "baixa" ? style.selected__low : ""}`}
-                            onClick={() => handlePriorityClick("baixa")}>
+                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "low" ? style.selected__low : ""}`}
+                            onClick={() => handlePriorityClick("low")}>
                             Baixa
                         </div>
                     </div>
                 </div>
 
 
-                <button>{buttonText}</button>
+                <button>Editar Tarefa</button>
             </form>
         </div>
     )

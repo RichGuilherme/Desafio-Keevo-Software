@@ -4,8 +4,9 @@ import { EditIcon } from "../../../icons/EditIcon"
 import { Modal } from "../../Modal"
 
 import style from "./style.module.css"
-import { ModalAddEditTask } from "../../Modal/ModalAddEditTask"
+
 import { ModalDeleteTask } from "../../Modal/ModalDeleteTask"
+import { ModalEditTask } from "../../Modal/ModalEditTask"
 
 
 export const ListCardTask = () => {
@@ -69,8 +70,8 @@ export const ListCardTask = () => {
             >
                 {isModal == "edit" ?
 
-                    <ModalAddEditTask
-                        buttonText="Editar"
+                    <ModalEditTask
+                        idTask=""
                         setIsOpenModal={setIsOpenModal} />
                     :
                     <ModalDeleteTask

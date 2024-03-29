@@ -1,4 +1,4 @@
-.modal__newTask {
+.modal__editTask {
     width: 100%;
     height: auto;
 
@@ -7,7 +7,7 @@
     background-color: var(--color-white);
 }
 
-.form__newTask {
+.form__editTask {
     display: flex;
     flex-direction: column;
     gap: 29px;
@@ -15,7 +15,7 @@
     position: relative;
 }
 
-.form__newTask>div label {
+.form__editTask div label {
     margin-bottom: .9rem;
 
     color: var(--font-color-gray-400);
@@ -23,7 +23,7 @@
     letter-spacing: var(--letter-space);
 }
 
-.form__newTask button {
+.form__editTask button {
     max-width: 13.0rem;
 
     margin-top: 2.6rem;
@@ -42,6 +42,33 @@
     cursor: pointer;
 
 }
+
+.status__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.status__form select {
+    width: 23.8rem;
+
+    background-color: #0000;
+
+    padding: 5px 2px;
+    border: 1px solid var(--font-color-gray-700);
+    border-radius: 5px;
+
+    line-height: 1;
+    color: var(--font-color-gray-800);
+}
+
+.status__form select option {
+    padding: 20px 1px;
+}
+
+.status__form select:focus-visible {
+    outline: none;
+}
+
 
 .priority__button {
     display: flex;
@@ -67,31 +94,31 @@
 }
 
 .priorityItem__hard {
-    border: 1px solid #F73345;
-    color: #F73345;
+    border: 1px solid var(--font-color-priority-hard);
+    color: var(--font-color-priority-hard);
 }
 
 .selected__hard {
-    background-color: #F73345;
+    background-color: var(--font-color-priority-hard);
     color: #fff;
 }
 
 .priorityItem__medium {
-    border: 1px solid #FFC139;
-    color: #FFC139;
+    border: 1px solid var(--font-color-priority-medium);
+    color: var(--font-color-priority-medium);
 }
 
 .selected__medium {
-    background-color: #FFC139;
+    background-color: var(--font-color-priority-medium);
     color: #fff;
 }
 
 .priorityItem__low {
-    border: 1px solid #24C95B;
-    color: #24C95B;
+    border: 1px solid var(--font-color-priority-low);
+    color: var(--font-color-priority-low);
 }
 
 .selected__low {
-    background-color: #24C95B;
+    background-color: var(--font-color-priority-low);
     color: #fff;
 }

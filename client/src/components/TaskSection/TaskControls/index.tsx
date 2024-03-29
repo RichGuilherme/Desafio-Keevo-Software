@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { ArrowDownIcon } from "../../../icons/ArrowDownIcon"
 import { PlusIcon } from "../../../icons/PlusIcon"
 import { Modal } from "../../Modal"
-import { ModalAddEditTask } from "../../Modal/ModalAddEditTask"
 
 import style from "./style.module.css"
+import { FilterBar } from "./FilterBar"
+import { ModalAddTask } from "../../Modal/ModalAddTask"
 
 export const TaskControls = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
@@ -18,10 +18,7 @@ export const TaskControls = () => {
       <p>Tarefas:</p>
 
       <div className={style.task__filterForm}>
-        <div>
-          <p>Ordernar por</p>
-          <ArrowDownIcon />
-        </div>
+        <FilterBar />
 
         <button onClick={openModalNewTask}>
           <PlusIcon />
@@ -35,8 +32,7 @@ export const TaskControls = () => {
         handleClose={() => setIsOpenModal(false)}
         maxWidth={690}
       >
-        <ModalAddEditTask
-          buttonText="Criar tarefa"
+        <ModalAddTask
           setIsOpenModal={setIsOpenModal} />
       </Modal>
     </div>
