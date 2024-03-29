@@ -2,7 +2,7 @@ import { useState } from "react"
 import { ArrowDownIcon } from "../../../icons/ArrowDownIcon"
 import { PlusIcon } from "../../../icons/PlusIcon"
 import { Modal } from "../../Modal"
-import { ModalNewTask } from "./ModalNewTask"
+import { ModalAddEditTask } from "../../Modal/ModalAddEditTask"
 
 import style from "./style.module.css"
 
@@ -33,8 +33,11 @@ export const TaskControls = () => {
         modalTitle="Nova Tarefa"
         isOpen={isOpenModal}
         handleClose={() => setIsOpenModal(false)}
-        maxWidth={690}>
-        <ModalNewTask />
+        maxWidth={690}
+      >
+        <ModalAddEditTask
+          buttonText="Criar tarefa"
+          setIsOpenModal={setIsOpenModal} />
       </Modal>
     </div>
 
