@@ -2,7 +2,7 @@
     background-color: #fff;
 
     width: 100%;
-    max-width: 445px;
+    max-width: 395px;
 
     height: auto;
 
@@ -22,17 +22,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 
     min-width: 95px;
     padding: 8px 1px;
 
     text-align: center;
     cursor: pointer;
-}
-
-.status__content:hover {
-    background-color: var(--font-secondary-color-hover);
 }
 
 .status__content div {
@@ -53,21 +49,18 @@
     fill: #fff;
 }
 
-.status__content:nth-child(1) div {
+.status__completed div{
     background-color: #19F214;
 }
 
-.status__content:nth-child(2) div {
+.status__progress div{
     background-color: #EEF214;
 }
 
-.status__content:nth-child(3) div {
+.status__pending div{
     background-color: #14A2F2;
 }
 
-.status__content:nth-child(4) div {
-    background-color: #8C3EF0;
-}
 
 .status__content p {
     font-size: var(--font-size-sm);

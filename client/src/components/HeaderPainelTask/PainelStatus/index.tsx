@@ -1,5 +1,4 @@
 import { CheckIcon } from "../../../icons/CheckIcon"
-import { PauseIcon } from "../../../icons/PauseIcon"
 import { ProgressIcon } from "../../../icons/ProgressIcon"
 import { StartIcon } from "../../../icons/StartIcon"
 
@@ -10,40 +9,31 @@ export const PainelStatus = () => {
     return (
         <div className={style.statusPainel}>
             <div className={style.c_statusPainel}>
-                <div className={style.status__content}>
+                <div className={`${style.status__content} ${style.status__completed}`}>
                     <div>
                         <CheckIcon />
                     </div>
 
-                    <p>Concluídos</p>
+                    <p>Concluídas</p>
                     <span>5</span>
                 </div>
 
-                <div className={style.status__content}>
+                <div className={`${style.status__content} ${style.status__progress}`}>
                     <div>
                         <ProgressIcon />
                     </div>
 
-                    <p>Em progresso</p>
+                    <p>Em desenvolvimento</p>
                     <span>2</span>
                 </div>
 
-                <div className={style.status__content}>
+                <div className={`${style.status__content} ${style.status__pending}`}>
                     <div>
                         <StartIcon />
                     </div>
 
-                    <p>Iniciar</p>
+                    <p>Pendentes</p>
                     <span>4</span>
-                </div>
-
-                <div className={style.status__content}>
-                    <div>
-                        <PauseIcon />
-                    </div>
-
-                    <p>Pausados</p>
-                    <span>1</span>
                 </div>
             </div>
 
