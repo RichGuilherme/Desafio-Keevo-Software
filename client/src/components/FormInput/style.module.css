@@ -10,11 +10,16 @@
     padding: 7px 10px;
 
     border-radius: 11px;
-    border: 1px solid var(--font-color-gray-400);
+    border: 1px solid var(--font-color-gray-700);
+    color: var(--font-color-gray-800);
     outline: none;
 }
 
 .formInput input[type="date"] {
     width: 23.8rem;
     padding: 5px 2px;
+
+    border: 1px solid var(--font-color-gray-700);
+    border-radius: 5px;
+    color: var(--font-color-gray-800);
 }
