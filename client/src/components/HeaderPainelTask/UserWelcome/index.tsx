@@ -1,10 +1,11 @@
 
-import { GetCurrentDate } from "../../../utils/GetCurrentDate"
 import style from "./style.module.css"
-import { GetCurrentHrs } from "../../../utils/GetCurrentHrs"
+import { useCurrentDate } from "../../../hooks/useCurrentDate"
+import { useCurrentHrs } from "../../../hooks/useCurrentHrs"
 
 export const UserWelcome = () => {
-
+    const currentDate = useCurrentDate()
+    const currentHrs = useCurrentHrs()
 
     return (
         <div className={style.userWelcome}>
@@ -16,7 +17,7 @@ export const UserWelcome = () => {
             </div>
 
             <div className={style.userWelcome__date}>
-                <span><GetCurrentHrs/> &nbsp;<GetCurrentDate /></span>
+                <span>{currentHrs} {currentDate} </span>
             </div>
         </div>
     )
