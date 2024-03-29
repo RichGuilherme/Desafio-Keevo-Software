@@ -14,7 +14,7 @@ export const ModalDeleteTask = ({ setIsOpenModal }: PropsModalDeleteTask) => {
 
     return (
         <div className={style.deleteTask}>
-            <p>Você realmente deseja deletar essa terefa?</p>
+            <p>Você realmente deseja deletar essa tarefa?</p>
 
             <div>
                 <button
