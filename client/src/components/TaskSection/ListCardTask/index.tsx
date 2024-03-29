@@ -71,9 +71,11 @@ export const ListCardTask = () => {
 
                     <ModalAddEditTask
                         buttonText="Editar"
-                        setIsOpenModal={setIsOpenModal}/>
+                        setIsOpenModal={setIsOpenModal} />
                     :
-                    <ModalDeleteTask />
+                    <ModalDeleteTask
+                        setIsOpenModal={setIsOpenModal}
+                    />
                 }
 
             </Modal>
