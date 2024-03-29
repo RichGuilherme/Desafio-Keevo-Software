@@ -1,0 +1,44 @@
+.c_filterBar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.c_filterBar button {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    border: none;
+    color: var(--font-color-gray-700);
+    cursor: pointer;
+}
+
+.filterBar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    top: 4.7rem;
+    width: 28rem;
+    padding: 1.4rem 1.6rem;
+    background-color: var(--color-white);
+}
+
+.filterBar__list li {
+    padding: 3px 4px;
+    
+    font-size: calc(var(--font-size-base) - 1px);
+    letter-spacing: var(--letter-space);
+    color: var(--font-color-gray-700);
+    cursor: pointer;
+}
+
+
+.filterBar__list li:nth-child(2n + 1) {
+    background-color: rgb(244, 244, 244);
+}
+
+.filterBar__list li:hover {
+    background-color: #e9e9e9;
+}
