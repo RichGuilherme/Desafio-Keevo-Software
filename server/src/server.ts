@@ -1,14 +1,10 @@
-
-import Express  from "express";
+import Express from "express";
+import taskRoute from "./route/task.route";
 
 const app = Express();
 app.use(Express.json());
-const port = 8080;
+const port = 4000;
 
-app.get("/", (request, response) => {
-    response.send("Teste");
-});
+app.use("/task", taskRoute);
 
-app.listen(port, () => {
-    console.log("Rodando servidor");
-});
+app.listen(port);
