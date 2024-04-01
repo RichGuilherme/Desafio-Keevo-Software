@@ -1,4 +1,4 @@
-import { ITask, ITaskRepository, TaskCreate } from "../interfaces/task.interface";
+import { ITask, ITaskRepository, TaskCreate, TaskFilter } from "../interfaces/task.interface";
 import { TaskRepositoryPrisma } from "../repositories/task.repository";
 
 
@@ -18,9 +18,9 @@ class TaskService {
     }
 
     async getAll(): Promise<ITask[]> {
-        const task = await this.TaskRepository.getAll();
+        const taskList = await this.TaskRepository.getAll();
 
-        return task;
+        return taskList;
     }
 
     async editTask(id: string, data: TaskCreate): Promise<ITask> {
@@ -35,6 +35,11 @@ class TaskService {
         return task;
     }
 
+    async filterTasks({ status, orderBy }: TaskFilter): Promise<ITask[]> {
+        const taskFiltered = await this.TaskRepository.filterTasks({ status, orderBy });
+
+        return taskFiltered;
+    }
 }
 
 export { TaskService };

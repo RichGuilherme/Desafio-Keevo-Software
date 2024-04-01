@@ -53,7 +53,7 @@ router.put("/update/:id", (async (req: Request, res: Response) => {
 
 router.delete("/delete/:id", (async (req: Request, res: Response) => {
     const { id } = req.params;
-    
+
     console.log(id);
     try {
         await taskService.deleteTask(id);
@@ -65,5 +65,17 @@ router.delete("/delete/:id", (async (req: Request, res: Response) => {
     }
 }));
 
+router.get("/tasksFilter", (async (req: Request, res: Response) => {
+    const { status, orderBy } = req.body;
+
+    try {
+        const filter = await taskService.filterTasks({ status , orderBy});
+
+        res.status(201).json(filter);
+    }
+    catch (error) {
+        res.send("Error");
+    }
+}));
 
 export default router;

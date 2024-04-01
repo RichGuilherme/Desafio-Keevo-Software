@@ -1,5 +1,6 @@
-import { ITask, ITaskRepository, TaskCreate, } from "../interfaces/task.interface";
+import { ITask, ITaskRepository, TaskCreate, TaskFilter, } from "../interfaces/task.interface";
 import { prisma } from "../../prisma/prismaClient";
+import { Prisma, TaskStatus } from "@prisma/client";
 
 
 class TaskRepositoryPrisma implements ITaskRepository {
@@ -33,6 +34,36 @@ class TaskRepositoryPrisma implements ITaskRepository {
 
     async deleteTask(id: string): Promise<void> {
         await prisma.task.delete({ where: { id: Number(id) } });
+    }
+
+    async filterTasks({status, orderBy }: TaskFilter): Promise<ITask[]> {
+        const where: Prisma.taskWhereInput = {};
+        let orderByField = {};
+
+        if (status) {
+            where.status = status as TaskStatus;
+        }
+
+        switch (orderBy) {
+        case "priorityHigh":
+            orderByField = { priority: "desc" };
+            break;
+        case "priorityLow":
+            orderByField = { priority: "asc" };
+            break;
+        case "dueDateAsc":
+            orderByField = { dueDate: "asc" };
+            break;
+        case "dueDateDesc":
+            orderByField = { dueDate: "desc" };
+            break;
+
+        }
+
+        return await prisma.task.findMany({
+            where: where,
+            orderBy: orderByField,
+        });
     }
 
 }

@@ -16,9 +16,15 @@ export interface TaskCreate {
     dueDate: string
 }
 
+export interface TaskFilter { 
+   status?: string
+   orderBy?: "priorityHigh" | "priorityLow" | "dueDateAsc" | "dueDateDesc"
+}
+
 export interface ITaskRepository {
     create(data: TaskCreate): Promise<ITask>
     getAll(): Promise<ITask[]>
     editTask(taskId: string, data: TaskCreate): Promise<ITask>
     deleteTask(taskId: string): Promise<void>
+    filterTasks({status, orderBy}: TaskFilter): Promise<ITask[]>
 }
