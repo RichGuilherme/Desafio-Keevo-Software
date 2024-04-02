@@ -28,8 +28,8 @@ export const FilterBar = () => {
                     <li onClick={() => handleUpdateOrder("status=done")}>Status: concluídas</li>
                     <li onClick={() => handleUpdateOrder("status=in_progress")}>Status: em desenvolvimento</li>
                     <li onClick={() => handleUpdateOrder("status=todo")}>Status: pendentes</li>
-                    <li onClick={() => handleUpdateOrder("orderBy=priorityHigh")}>Prioridade: decrescente</li>
-                    <li onClick={() => handleUpdateOrder("orderBy=priorityLow")}>Prioridade: crescente</li>
+                    <li onClick={() => handleUpdateOrder("orderBy=priorityDesc")}>Prioridade: decrescente</li>
+                    <li onClick={() => handleUpdateOrder("orderBy=priorityAsc")}>Prioridade: crescente</li>
                     <li onClick={() => handleUpdateOrder("orderBy=dueDateAsc")}>Data: perto de finalizar</li>
                     <li onClick={() => handleUpdateOrder("orderBy=dueDateDesc")}>Data: longe de finalizar</li>
                 </ul>

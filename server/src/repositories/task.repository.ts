@@ -44,21 +44,17 @@ class TaskRepositoryPrisma implements ITaskRepository {
             where.status = status as TaskStatus;
         }
 
-        switch (orderBy) {
-        case "priorityHigh":
-            orderByField = { priority: "desc" };
-            break;
-        case "priorityLow":
-            orderByField = { priority: "asc" };
-            break;
-        case "dueDateAsc":
-            orderByField = { dueDate: "asc" };
-            break;
-        case "dueDateDesc":
-            orderByField = { dueDate: "desc" };
-            break;
+        const orderByFilter = {
+            "priorityDesc": { priority: "desc" },
+            "priorityAsc": { priority: "asc" },
+            "dueDateAsc": { dueDate: "asc" },
+            "dueDateDesc": { dueDate: "desc" }
+        };
 
+        if(orderBy){
+            orderByField = orderByFilter[orderBy];
         }
+       
 
         return await prisma.task.findMany({
             where: where,

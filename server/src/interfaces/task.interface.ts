@@ -18,7 +18,7 @@ export interface TaskCreate {
 
 export interface TaskFilter { 
    status?: string
-   orderBy?: "priorityHigh" | "priorityLow" | "dueDateAsc" | "dueDateDesc"
+   orderBy?: "priorityAsc" | "priorityDesc" | "dueDateAsc" | "dueDateDesc"
 }
 
 export interface ITaskRepository {
