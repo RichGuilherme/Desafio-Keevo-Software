@@ -1,10 +1,10 @@
-.c_taskList{
+.c_taskList {
     display: flex;
     flex-direction: column;
     gap: 31px;
 
     width: 100%;
-   
+
     margin-top: 3.4rem;
 
 }
@@ -26,7 +26,7 @@
 }
 
 
-.task__card div :is(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:first-child {
+.task__card div :where(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:first-child {
     color: var(--font-color-gray-300);
     font-size: calc(var(--font-size-sm) - 1px);
     letter-spacing: var(--letter-space);
@@ -35,18 +35,18 @@
     margin-bottom: 3px;
 }
 
-.task__card div :where(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:last-child {
+.task__card div :where(.task__cardTitle, .task__cardDataEnd) p:last-child {
     color: var(--font-color-gray-700);
     font-size: calc(var(--font-size-base) - 1px);
     letter-spacing: var(--letter-space);
 }
 
-.task__card div :is(.task__cardPriority, .task__cardDataEnd) p:last-child {
+.task__card div :where(.task__cardPriority, .task__cardDataEnd) p:last-child {
     text-align: center;
     white-space: nowrap;
 }
 
-.task__card div :is(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:last-child::first-letter{
+.task__card div :where(.task__cardTitle, .task__cardPriority, .task__cardDataEnd) p:last-child::first-letter {
     text-transform: uppercase;
 }
 
@@ -56,7 +56,7 @@
     align-items: center;
     gap: 7px;
 
-    width: min(100%, 59.2rem);
+    width: min(100%, 57.2rem);
     min-width: 26.4rem;
 
     margin-right: 1rem;
@@ -72,29 +72,58 @@
     flex-wrap: wrap;
     justify-content: end;
     gap: 7.2rem;
-    width: min(100%, 64.7rem);
 
+    width: min(100%, 64.7rem);
+    min-width: 28.4rem;
 }
 
 .task__cardActions {
     display: flex;
     gap: 12px;
 }
-.task__cardActions svg{
+
+.task__cardActions svg {
     cursor: pointer;
     height: 2.0rem;
     width: 2.0rem;
 }
 
 .task__cardStatus {
+    min-width: 117px;
+    display: flex;
+    justify-content: center;
+}
+
+.task__btnStatus {
     padding: 0.5rem 1.4rem;
     border-radius: 7px;
     background-color: var(--button-bg-color);
 
     font-size: var(--font-size-sm);
     font-weight: 500;
+
+    text-align: center;
 }
 
+
+.task__cardPriority p:last-child {
+    font-size: calc(var(--font-size-base) - 1px);
+    letter-spacing: var(--letter-space);
+    text-transform: lowercase;
+    font-weight: 700;
+}
+
+.HIGH {
+    color: var(--font-color-priority-hard);
+}
+
+.MEDIUM {
+    color: var(--font-color-priority-medium)
+}
+
+.LOW {
+    color: var(--font-color-priority-low);
+}
 
 /* Input checkbox */
 .containerCheckbox {
@@ -107,9 +136,7 @@
     cursor: pointer;
 }
 
-.containerCheckbox:has([type="checkbox"]:checked) + 
-.task__cardTitle p:last-child 
-{
+.containerCheckbox:has([type="checkbox"]:checked)+.task__cardTitle p:last-child {
     text-decoration: line-through;
     opacity: .6;
 }
@@ -154,13 +181,13 @@
 }
 
 
-@media (max-width: 1280px){
-	.task__cardBody {
+@media (max-width: 1280px) {
+    .task__cardBody {
         gap: 5.2rem
     }
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
     .task__card {
         flex-wrap: wrap;
         gap: 25px;
