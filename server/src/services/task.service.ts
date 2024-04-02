@@ -17,7 +17,7 @@ class TaskService {
         return task;
     }
 
-    async getAll(): Promise<ITask[]> {
+    async getAll(): Promise<TaskCreate[]> {
         const taskList = await this.TaskRepository.getAll();
 
         return taskList;

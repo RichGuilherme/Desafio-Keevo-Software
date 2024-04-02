@@ -18,7 +18,7 @@ class TaskRepositoryPrisma implements ITaskRepository {
         return result;
     }
 
-    async getAll(): Promise<ITask[]> {
+    async getAll(): Promise<TaskCreate[]> {
 
         const result = await prisma.task.findMany();
 
@@ -36,7 +36,7 @@ class TaskRepositoryPrisma implements ITaskRepository {
         await prisma.task.delete({ where: { id: Number(id) } });
     }
 
-    async filterTasks({status, orderBy }: TaskFilter): Promise<ITask[]> {
+    async filterTasks({ status, orderBy }: TaskFilter): Promise<ITask[]> {
         const where: Prisma.taskWhereInput = {};
         let orderByField = {};
 

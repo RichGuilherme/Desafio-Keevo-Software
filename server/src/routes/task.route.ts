@@ -8,17 +8,24 @@ const taskService = new TaskService();
 
 
 router.get("/", (async (req: Request, res: Response) => {
-    try {
-        const allTask = await taskService.getAll();
+    const query = req.query;
+    let taskList;
 
-        res.status(201).json(allTask);
+    try {
+        if (query) {
+            taskList = await taskService.filterTasks(query);
+        } else {
+            taskList = await taskService.getAll();
+        }
+
+        res.status(201).json(taskList);
     }
     catch (error) {
         res.send("Error");
     }
 }));
 
-router.post("/create", (async (req: Request, res: Response) => {
+router.post("/", (async (req: Request, res: Response) => {
     const { description, priority, status, dueDate } = req.body;
 
     try {
@@ -37,7 +44,7 @@ router.post("/create", (async (req: Request, res: Response) => {
 }));
 
 
-router.put("/update/:id", (async (req: Request, res: Response) => {
+router.patch("/:id", (async (req: Request, res: Response) => {
     const { description, priority, status, dueDate } = req.body;
     const { id } = req.params;
 
@@ -51,10 +58,9 @@ router.put("/update/:id", (async (req: Request, res: Response) => {
     }
 }));
 
-router.delete("/delete/:id", (async (req: Request, res: Response) => {
+router.delete("/:id", (async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    console.log(id);
     try {
         await taskService.deleteTask(id);
 
@@ -64,18 +70,4 @@ router.delete("/delete/:id", (async (req: Request, res: Response) => {
         res.send("Error");
     }
 }));
-
-router.get("/tasksFilter", (async (req: Request, res: Response) => {
-    const { status, orderBy } = req.body;
-
-    try {
-        const filter = await taskService.filterTasks({ status , orderBy});
-
-        res.status(201).json(filter);
-    }
-    catch (error) {
-        res.send("Error");
-    }
-}));
-
 export default router;
