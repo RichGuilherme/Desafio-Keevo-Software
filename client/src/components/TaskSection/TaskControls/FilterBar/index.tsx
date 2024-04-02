@@ -25,9 +25,9 @@ export const FilterBar = () => {
             {isOpen &&
                 <ul className={style.filterBar__list}>
                     <li onClick={() => handleUpdateOrder("")}>Sem filtro</li>
-                    <li onClick={() => handleUpdateOrder("status=DONE")}>Status: concluídas</li>
-                    <li onClick={() => handleUpdateOrder("status=IN_PROGRESS")}>Status: em desenvolvimento</li>
-                    <li onClick={() => handleUpdateOrder("status=TODO")}>Status: pendentes</li>
+                    <li onClick={() => handleUpdateOrder("status=done")}>Status: concluídas</li>
+                    <li onClick={() => handleUpdateOrder("status=in_progress")}>Status: em desenvolvimento</li>
+                    <li onClick={() => handleUpdateOrder("status=todo")}>Status: pendentes</li>
                     <li onClick={() => handleUpdateOrder("orderBy=priorityHigh")}>Prioridade: decrescente</li>
                     <li onClick={() => handleUpdateOrder("orderBy=priorityLow")}>Prioridade: crescente</li>
                     <li onClick={() => handleUpdateOrder("orderBy=dueDateAsc")}>Data: perto de finalizar</li>

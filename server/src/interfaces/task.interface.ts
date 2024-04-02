@@ -2,8 +2,8 @@
 export interface ITask {
     id: number
     description: string
-    status: "TODO" | "IN_PROGRESS" | "DONE"
-    priority: "LOW" | "MEDIUM" | "HIGH"
+    status: "todo" | "in_progress" | "done"
+    priority: "low" | "medium" | "high"
     dueDate: string
     createdAt: Date
     updatedAt: Date
@@ -11,8 +11,8 @@ export interface ITask {
 
 export interface TaskCreate {
     description: string
-    status: "TODO" | "IN_PROGRESS" | "DONE"
-    priority: "LOW" | "MEDIUM" | "HIGH"
+    status: "todo" | "in_progress" | "done"
+    priority: "low" | "medium" | "high"
     dueDate: string
 }
 

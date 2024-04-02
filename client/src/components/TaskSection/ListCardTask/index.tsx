@@ -34,7 +34,7 @@ export const ListCardTask = () => {
     const handleCheckbox = async (idTask: number, currentStatus: string) => {
         try {
             await axiosInstancia.patch(`/tasks/${idTask}`, {
-                status: `${currentStatus === "DONE" ? "TODO" : "DONE"}`
+                status: `${currentStatus === "done" ? "todo" : "done"}`
             })
 
             updateTasks()
@@ -44,15 +44,15 @@ export const ListCardTask = () => {
     }
     
     const statusMapping = {
-        "TODO": "Pendente",
-        "IN_PROGRESS": "Em andamento",
-        "DONE": "Concluída"
+        "todo": "Pendente",
+        "in_progress": "Em andamento",
+        "done": "Concluída"
     }
 
     const priorityMapping = {
-        "LOW": "Baixa",
-        "MEDIUM": "Média",
-        "HIGH": "Alta"
+        "low": "Baixa",
+        "medium": "Média",
+        "high": "Alta"
     }
 
     const translateTaskInfos = (text: string, mapping: Mapping) => {
@@ -74,7 +74,7 @@ export const ListCardTask = () => {
                         <div className={style.task__cardHeader}>
                             <label className={style.containerCheckbox}>
                                 <input
-                                    checked={task.status === "DONE"}
+                                    checked={task.status === "done"}
                                     onChange={() => handleCheckbox(task.id, task.status)}
                                     type="checkbox" />
                                 <div className={style.checkmark}></div>

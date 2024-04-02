@@ -113,15 +113,15 @@
     font-weight: 700;
 }
 
-.HIGH {
+.high {
     color: var(--font-color-priority-hard);
 }
 
-.MEDIUM {
+.medium {
     color: var(--font-color-priority-medium)
 }
 
-.LOW {
+.low {
     color: var(--font-color-priority-low);
 }
 

@@ -10,8 +10,8 @@ datasource db {
 model task {
   id         Int          @id @default(autoincrement())
   description String
-  status     TaskStatus   @default(value: TODO)
-  priority   TaskPriority @default(value: LOW)
+  status     TaskStatus   @default(value: todo)
+  priority   TaskPriority @default(value: low)
   dueDate    String
   createdAt  DateTime     @default(now())
   updatedAt  DateTime     @updatedAt
@@ -20,13 +20,13 @@ model task {
 }
 
 enum TaskStatus {
-  TODO
-  IN_PROGRESS
-  DONE
+  todo
+  in_progress
+  done
 }
 
 enum TaskPriority {
-  LOW
-  MEDIUM
-  HIGH
+  low
+  medium
+  high
 }

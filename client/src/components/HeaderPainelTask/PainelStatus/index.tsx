@@ -20,7 +20,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Concluídas</p>
-                    <span>{countTasksStatus("DONE")}</span>
+                    <span>{countTasksStatus("done")}</span>
                 </div>
 
                 <div className={`${style.status__content} ${style.status__progress}`}>
@@ -29,7 +29,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Em desenvolvimento</p>
-                    <span>{countTasksStatus("IN_PROGRESS")}</span>
+                    <span>{countTasksStatus("in_progress")}</span>
                 </div>
 
                 <div className={`${style.status__content} ${style.status__pending}`}>
@@ -38,7 +38,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Pendentes</p>
-                    <span>{countTasksStatus("TODO")}</span>
+                    <span>{countTasksStatus("todo")}</span>
                 </div>
             </div>
 

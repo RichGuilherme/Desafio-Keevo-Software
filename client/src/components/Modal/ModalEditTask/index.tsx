@@ -94,9 +94,9 @@ export const ModalEditTask = ({ setIsOpenModal, idTask, taskProp }: PropsModalEd
                     <label>Status da tarefa</label>
 
                     <select name="status" onChange={handleSelectChange} value={values.status}>
-                        <option value="TODO">Pendente</option>
-                        <option value="IN_PROGRESS">Em desenvolvimento</option>
-                        <option value="DONE">Concluída</option>
+                        <option value="todo">Pendente</option>
+                        <option value="in_progress">Em desenvolvimento</option>
+                        <option value="done">Concluída</option>
                     </select>
                 </div>
 
@@ -105,18 +105,18 @@ export const ModalEditTask = ({ setIsOpenModal, idTask, taskProp }: PropsModalEd
 
                     <div className={style.priority__button}>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "HIGH" ? style.selected__hard : ""}`}
-                            onClick={() => handlePriorityClick("HIGH")}>
+                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "high" ? style.selected__hard : ""}`}
+                            onClick={() => handlePriorityClick("high")}>
                             Alta
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "MEDIUM" ? style.selected__medium : ""}`}
-                            onClick={() => handlePriorityClick("MEDIUM")}>
+                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "medium" ? style.selected__medium : ""}`}
+                            onClick={() => handlePriorityClick("medium")}>
                             Média
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "LOW" ? style.selected__low : ""}`}
-                            onClick={() => handlePriorityClick("LOW")}>
+                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "low" ? style.selected__low : ""}`}
+                            onClick={() => handlePriorityClick("low")}>
                             Baixa
                         </div>
                     </div>
