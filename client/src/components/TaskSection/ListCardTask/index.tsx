@@ -11,13 +11,17 @@ import { useTaskContext } from "../../context/fetchTasksContext"
 import axiosInstancia from "../../../service/apiAxios"
 
 
+interface Mapping {
+    [key: string]: string
+}
+
 export const ListCardTask = () => {
     const [openModalAddEditTaks, setIsOpenModal] = useState<boolean>(false)
     const [idTask, setIdTask] = useState<number | null>(null)
     const [indexTask, setIndexTask] = useState<number>(0)
     const [isModal, setIsModal] = useState<string>("")
 
-    const { tasks, updateTasks} = useTaskContext()
+    const { tasks, updateTasks } = useTaskContext()
 
     const openModalTask = (modalTask: string, idTask: number, index?: number) => {
         setIsOpenModal(true)
@@ -30,12 +34,32 @@ export const ListCardTask = () => {
     const handleCheckbox = async (idTask: number, currentStatus: string) => {
         try {
             await axiosInstancia.patch(`/tasks/${idTask}`, {
-                status: `${currentStatus ==="DONE" ? "TODO" : "DONE"}`
+                status: `${currentStatus === "DONE" ? "TODO" : "DONE"}`
             })
 
             updateTasks()
         } catch (error) {
             console.error("Error fetching tasks:", error)
+        }
+    }
+    
+    const statusMapping = {
+        "TODO": "Pendente",
+        "IN_PROGRESS": "Em andamento",
+        "DONE": "Concluída"
+    }
+
+    const priorityMapping = {
+        "LOW": "Baixa",
+        "MEDIUM": "Média",
+        "HIGH": "Alta"
+    }
+
+    const translateTaskInfos = (text: string, mapping: Mapping) => {
+        if (mapping[text]) {
+            return mapping[text].toLowerCase()
+        } else {
+            return text
         }
     }
 
@@ -66,13 +90,13 @@ export const ListCardTask = () => {
                             <div className={style.task__cardPriority} >
                                 <p>Prioridade</p>
                                 <p className={`${style[task.priority]}`}>
-                                    {task.priority}
+                                    {translateTaskInfos(task.priority, priorityMapping)}
                                 </p>
                             </div>
 
                             <div className={style.task__cardStatus}>
                                 <div className={style.task__btnStatus}>
-                                    {task.status}
+                                    {translateTaskInfos(task.status, statusMapping)}
                                 </div>
                             </div>
 
