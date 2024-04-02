@@ -7,59 +7,93 @@ import style from "./style.module.css"
 
 import { ModalDeleteTask } from "../../Modal/ModalDeleteTask"
 import { ModalEditTask } from "../../Modal/ModalEditTask"
+import { useTaskContext } from "../../context/fetchTasksContext"
+import axiosInstancia from "../../../service/apiAxios"
 
 
 export const ListCardTask = () => {
     const [openModalAddEditTaks, setIsOpenModal] = useState<boolean>(false)
+    const [idTask, setIdTask] = useState<number | null>(null)
+    const [indexTask, setIndexTask] = useState<number>(0)
     const [isModal, setIsModal] = useState<string>("")
 
-    const openModalTask = (modalTask: string) => {
+    const { tasks, updateTasks} = useTaskContext()
+
+    const openModalTask = (modalTask: string, idTask: number, index?: number) => {
         setIsOpenModal(true)
+
         setIsModal(modalTask)
+        setIdTask(idTask)
+        setIndexTask(index || 0)
+    }
+
+    const handleCheckbox = async (idTask: number, currentStatus: string) => {
+        try {
+            await axiosInstancia.patch(`/tasks/${idTask}`, {
+                status: `${currentStatus ==="DONE" ? "TODO" : "DONE"}`
+            })
+
+            updateTasks()
+        } catch (error) {
+            console.error("Error fetching tasks:", error)
+        }
     }
 
     return (
         <>
             <div className={style.c_taskList}>
-                <div className={style.task__card}>
+                {tasks && tasks.map((task, index: number) => (
+                    <div
+                        key={task.id}
+                        className={style.task__card}>
 
-                    <div className={style.task__cardHeader}>
-                        <label className={style.containerCheckbox}>
-                            <input type="checkbox" id="" />
-                            <div className={style.checkmark}></div>
-                        </label>
+                        <div className={style.task__cardHeader}>
+                            <label className={style.containerCheckbox}>
+                                <input
+                                    checked={task.status === "DONE"}
+                                    onChange={() => handleCheckbox(task.id, task.status)}
+                                    type="checkbox" />
+                                <div className={style.checkmark}></div>
+                            </label>
 
-                        <div className={style.task__cardTitle}>
-                            <p>Tarefa</p>
-                            <p>exemplo ir ao supermecador e pega as sacolas na garagem</p>
-                        </div>
-                    </div>
-
-                    <div className={style.task__cardBody}>
-                        <div className={style.task__cardPriority} >
-                            <p>Prioridade</p>
-                            <p style={{ color: "red" }}>Alta</p>
-                        </div>
-
-                        <div className={style.task__cardStatus}>
-                            Concluído
-                        </div>
-
-                        <div className={style.task__cardDataEnd}>
-                            <p>Finalizar até</p>
-                            <p>3 julho 2024</p>
-                        </div>
-
-                        <div className={style.task__cardActions}>
-                            <div onClick={() => openModalTask("edit")}>
-                                <EditIcon />
-                            </div>
-                            <div onClick={() => openModalTask("delete")}>
-                                <BinIcon />
+                            <div className={style.task__cardTitle}>
+                                <p>Tarefa</p>
+                                <p>{task.description}</p>
                             </div>
                         </div>
+
+                        <div className={style.task__cardBody}>
+                            <div className={style.task__cardPriority} >
+                                <p>Prioridade</p>
+                                <p className={`${style[task.priority]}`}>
+                                    {task.priority}
+                                </p>
+                            </div>
+
+                            <div className={style.task__cardStatus}>
+                                <div className={style.task__btnStatus}>
+                                    {task.status}
+                                </div>
+                            </div>
+
+                            <div className={style.task__cardDataEnd}>
+                                <p>Finalizar até</p>
+                                <p>{task.dueDate}</p>
+                            </div>
+
+                            <div className={style.task__cardActions}>
+                                <div onClick={() => openModalTask("edit", task.id, index)}>
+                                    <EditIcon />
+                                </div>
+                                <div onClick={() => openModalTask("delete", task.id)}>
+                                    <BinIcon />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                ))}
+
+
             </div>
 
             <Modal
@@ -71,10 +105,12 @@ export const ListCardTask = () => {
                 {isModal == "edit" ?
 
                     <ModalEditTask
-                        idTask=""
+                        idTask={idTask}
+                        taskProp={tasks[indexTask]}
                         setIsOpenModal={setIsOpenModal} />
                     :
                     <ModalDeleteTask
+                        idTask={idTask}
                         setIsOpenModal={setIsOpenModal}
                     />
                 }

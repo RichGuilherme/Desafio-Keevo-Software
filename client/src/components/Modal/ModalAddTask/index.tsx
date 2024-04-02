@@ -1,17 +1,22 @@
 import { useState } from "react"
 import style from "./style.module.css"
 import { FormInput } from "../../FormInput"
+import axiosInstancia from "../../../service/apiAxios"
+
+import { useTaskContext } from "../../context/fetchTasksContext"
 
 interface PropsModalNewTask {
     setIsOpenModal: (any: boolean) => void
 }
 
 export const ModalAddTask = ({ setIsOpenModal }: PropsModalNewTask) => {
-    const [prioritySelected, setPrioritySelected] = useState<string>("low")
+    const [prioritySelected, setPrioritySelected] = useState<string>("LOW")
+    const { updateTasks } = useTaskContext()
+
     const [values, setValues] = useState({
-        task: "",
-        dateEnd: "",
-        priority: "low"
+        description: "",
+        dueDate: "",
+        priority: "LOW"
     })
 
     const today = new Date()
@@ -24,7 +29,7 @@ export const ModalAddTask = ({ setIsOpenModal }: PropsModalNewTask) => {
             inputAttribute: {
                 type: "text",
                 placeholder: "Digite a tarefa",
-                name: "task",
+                name: "description",
                 required: true
             }
         },
@@ -34,11 +39,11 @@ export const ModalAddTask = ({ setIsOpenModal }: PropsModalNewTask) => {
             inputAttribute: {
                 type: "date",
                 required: true,
-                name: "dateEnd",
+                name: "dueDate",
                 min: minDate
             }
         }
-    ];
+    ]
 
     const handlePriorityClick = (priorityProps: string) => {
         setPrioritySelected(priorityProps)
@@ -46,14 +51,20 @@ export const ModalAddTask = ({ setIsOpenModal }: PropsModalNewTask) => {
     }
 
     const HandleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
+        setValues({ ...values, [e.target.name]: e.target.value })
     }
 
-    const handleSubmitTask = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        console.log(values)
-        setIsOpenModal(false)
+        try {
+            await axiosInstancia.post("/tasks/", values)
+
+            updateTasks()
+            setIsOpenModal(false)
+        } catch (error) {
+            console.error("Error fetching tasks:", error)
+        }
     }
 
     return (
@@ -77,18 +88,18 @@ export const ModalAddTask = ({ setIsOpenModal }: PropsModalNewTask) => {
 
                     <div className={style.priority__button}>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "hard" ? style.selected__hard : ""}`}
-                            onClick={() => handlePriorityClick("hard")}>
+                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "HIGH" ? style.selected__hard : ""}`}
+                            onClick={() => handlePriorityClick("HIGH")}>
                             Alta
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "medium" ? style.selected__medium : ""}`}
-                            onClick={() => handlePriorityClick("medium")}>
+                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "MEDIUM" ? style.selected__medium : ""}`}
+                            onClick={() => handlePriorityClick("MEDIUM")}>
                             Média
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "low" ? style.selected__low : ""}`}
-                            onClick={() => handlePriorityClick("low")}>
+                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "LOW" ? style.selected__low : ""}`}
+                            onClick={() => handlePriorityClick("LOW")}>
                             Baixa
                         </div>
                     </div>

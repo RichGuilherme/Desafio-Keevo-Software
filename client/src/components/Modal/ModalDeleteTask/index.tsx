@@ -1,16 +1,28 @@
 import style from "./style.module.css"
+import axiosInstancia from "../../../service/apiAxios"
+
+import { useTaskContext } from "../../context/fetchTasksContext"
 
 interface PropsModalDeleteTask {
     setIsOpenModal: (any: boolean) => void
+    idTask: number | null
 }
 
-export const ModalDeleteTask = ({ setIsOpenModal }: PropsModalDeleteTask) => {
+export const ModalDeleteTask = ({ setIsOpenModal, idTask }: PropsModalDeleteTask) => {
+    const { updateTasks } = useTaskContext()
 
-    const handleDeleteTask = (e: React.FormEvent<HTMLButtonElement>) => {
+    const handleDeleteTask = async (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault()
 
-        setIsOpenModal(false)
+        try {
+            await axiosInstancia.delete(`/tasks/${idTask}`)
+            updateTasks()
+            setIsOpenModal(false)
+        } catch (error) {
+            console.error("Error fetching tasks:", error)
+        }
     }
+
 
     return (
         <div className={style.deleteTask}>

@@ -1,10 +1,15 @@
 import { CheckIcon } from "../../../icons/CheckIcon"
 import { ProgressIcon } from "../../../icons/ProgressIcon"
 import { StartIcon } from "../../../icons/StartIcon"
+import { useTaskContext } from "../../context/fetchTasksContext"
 
 import style from "./style.module.css"
 
 export const PainelStatus = () => {
+    const { tasks } = useTaskContext()
+
+    const countTasksStatus = (status: string) => tasks.filter(value => value.status == status).length
+    
 
     return (
         <div className={style.statusPainel}>
@@ -15,7 +20,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Concluídas</p>
-                    <span>5</span>
+                    <span>{countTasksStatus("DONE")}</span>
                 </div>
 
                 <div className={`${style.status__content} ${style.status__progress}`}>
@@ -24,7 +29,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Em desenvolvimento</p>
-                    <span>2</span>
+                    <span>{countTasksStatus("IN_PROGRESS")}</span>
                 </div>
 
                 <div className={`${style.status__content} ${style.status__pending}`}>
@@ -33,7 +38,7 @@ export const PainelStatus = () => {
                     </div>
 
                     <p>Pendentes</p>
-                    <span>4</span>
+                    <span>{countTasksStatus("TODO")}</span>
                 </div>
             </div>
 

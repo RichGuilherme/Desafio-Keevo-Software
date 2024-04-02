@@ -1,19 +1,26 @@
 import { useState } from "react"
 import style from "./style.module.css"
 import { FormInput } from "../../FormInput"
+import { Tasks, useTaskContext } from "../../context/fetchTasksContext"
+import axiosInstancia from "../../../service/apiAxios"
 
-interface PropsModalNewTask {
+interface PropsModalEditTask {
     setIsOpenModal: (any: boolean) => void
-    idTask: string
+    taskProp: Tasks
+    idTask: number | null
 }
 
-export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
-    const [prioritySelected, setPrioritySelected] = useState<string>("low")
-    const [values, setValues] = useState({
-        task: "",
-        dateEnd: "",
-        status: "pending",
-        priority: "low"
+export const ModalEditTask = ({ setIsOpenModal, idTask, taskProp }: PropsModalEditTask) => {
+    const [prioritySelected, setPrioritySelected] = useState<string>(`${taskProp.priority}`)
+    const { updateTasks } = useTaskContext()
+
+    const [values, setValues] = useState<{
+        [key: string]: string
+    }>({
+        description: `${taskProp.description}`,
+        dueDate: `${taskProp.dueDate}`,
+        status: `${taskProp.status}`,
+        priority: `${taskProp.priority}`
     })
 
     const today = new Date()
@@ -26,8 +33,7 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
             inputAttribute: {
                 type: "text",
                 placeholder: "Digite a tarefa",
-                name: "task",
-                required: true
+                name: "description",
             }
         },
         {
@@ -35,12 +41,11 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
             label: "Data máxima para finalizar",
             inputAttribute: {
                 type: "date",
-                required: true,
-                name: "dateEnd",
+                name: "dueDate",
                 min: minDate
             }
         }
-    ];
+    ]
 
     const handlePriorityClick = (priorityProps: string) => {
         setPrioritySelected(priorityProps)
@@ -55,10 +60,17 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
         setValues({ ...values, [e.target.name]: e.target.value })
     }
 
-    const handleSubmitTask = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        console.log(values)
+        try {
+            await axiosInstancia.patch(`/tasks/${idTask}`, values)
+
+            updateTasks()
+            setIsOpenModal(false)
+        } catch (error) {
+            console.error("Error fetching tasks:", error)
+        }
         setIsOpenModal(false)
     }
 
@@ -72,6 +84,7 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
                     <FormInput
                         key={input.id}
                         label={input.label}
+                        value={values[input.inputAttribute.name]}
                         inputAttribute={input.inputAttribute}
                         onChange={handleInputChange}
                     />
@@ -80,10 +93,10 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
                 <div className={style.status__form}>
                     <label>Status da tarefa</label>
 
-                    <select name="status" onChange={handleSelectChange}>
-                        <option value="pending">Pendente</option>
-                        <option value="inProgress">Em desenvolvimento</option>
-                        <option value="completed">Concluída</option>
+                    <select name="status" onChange={handleSelectChange} value={values.status}>
+                        <option value="TODO">Pendente</option>
+                        <option value="IN_PROGRESS">Em desenvolvimento</option>
+                        <option value="DONE">Concluída</option>
                     </select>
                 </div>
 
@@ -92,18 +105,18 @@ export const ModalEditTask = ({ setIsOpenModal }: PropsModalNewTask) => {
 
                     <div className={style.priority__button}>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "hard" ? style.selected__hard : ""}`}
-                            onClick={() => handlePriorityClick("hard")}>
+                            className={`${style.priorityItem} ${style.priorityItem__hard} ${prioritySelected === "HIGH" ? style.selected__hard : ""}`}
+                            onClick={() => handlePriorityClick("HIGH")}>
                             Alta
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "medium" ? style.selected__medium : ""}`}
-                            onClick={() => handlePriorityClick("medium")}>
+                            className={`${style.priorityItem} ${style.priorityItem__medium} ${prioritySelected === "MEDIUM" ? style.selected__medium : ""}`}
+                            onClick={() => handlePriorityClick("MEDIUM")}>
                             Média
                         </div>
                         <div
-                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "low" ? style.selected__low : ""}`}
-                            onClick={() => handlePriorityClick("low")}>
+                            className={`${style.priorityItem} ${style.priorityItem__low} ${prioritySelected === "LOW" ? style.selected__low : ""}`}
+                            onClick={() => handlePriorityClick("LOW")}>
                             Baixa
                         </div>
                     </div>
