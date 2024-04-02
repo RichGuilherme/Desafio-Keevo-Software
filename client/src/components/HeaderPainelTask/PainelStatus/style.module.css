@@ -14,6 +14,8 @@
 .c_statusPainel {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    
     flex-direction: row;
     justify-content: space-between;
 }
@@ -73,4 +75,13 @@
     font-size: var(--font-size-3xl);
     font-weight: 600;
     color: var(--font-color-gray-700)
+}
+
+@media (max-width: 640px) {
+    .c_statusPainel {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 38px;
+        
+    }
 }

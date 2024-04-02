@@ -37,6 +37,11 @@
     color: var(--color-white);
 }
 
+.btn__delete:hover {
+    background-color: var(--font-secondary-color-hover);
+    box-shadow: 2px 4px 9px var(--font-secondary-color);
+}
+
 
 .btn__cancel {
     border-color: var(--font-color-gray-400);

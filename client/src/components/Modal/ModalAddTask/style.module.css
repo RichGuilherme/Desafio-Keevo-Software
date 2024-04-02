@@ -43,6 +43,11 @@
 
 }
 
+.form__newTask button:hover {
+    background-color: var(--font-secondary-color-hover);
+    box-shadow: 2px 4px 9px var(--font-secondary-color);
+}
+
 .status__form {
     display: flex;
     flex-direction: column;

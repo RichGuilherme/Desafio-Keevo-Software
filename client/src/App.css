@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -16,16 +17,22 @@ html {
   font-size: 62.5%;
 }
 
-body{
-  overflow: hidden;
+body {
+  height: 100vh;
 }
 
-ul, ol {
+#root {
+  height: 100%;
+}
+
+ul,
+ol {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-li{
+
+li {
   list-style: 0;
 }
 
@@ -37,10 +44,10 @@ li{
   --color-white: #fff;
   --color-black: #000;
   --button-bg-color: #EDEFF2;
-  
+
   /* font color */
   --font-secondary-color: #6414D2;
-  --font-secondary-color-hover: #ecdeff;
+  --font-secondary-color-hover: #813be1;
   --font-color-priority-hard: #F73345;
   --font-color-priority-medium: #FFC139;
   --font-color-priority-low: #24C95B;
@@ -61,10 +68,4 @@ li{
   --font-size-3xl: 30px;
   --letter-space: .5px;
 
-  /* breakpointes media query */
-  --breakpoint-width-sm: 640px;
-  --breakpoint-width-md: 768px;
-  --breakpoint-width-lg: 1024px;
-  --breakpoint-width-xl: 1280px;
-  --breakpoint-width-2xl: 1568px;
 }

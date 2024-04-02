@@ -40,7 +40,11 @@
     letter-spacing: .5px;
 
     cursor: pointer;
+}
 
+.form__editTask button:hover {
+    background-color: var(--font-secondary-color-hover);
+    box-shadow: 2px 4px 9px var(--font-secondary-color);
 }
 
 .status__form {
