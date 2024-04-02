@@ -21,7 +21,7 @@ router.get("/", (async (req: Request, res: Response) => {
         res.status(201).json(taskList);
     }
     catch (error) {
-        res.send("Error");
+        res.send("Error teste");
     }
 }));
 
@@ -29,14 +29,14 @@ router.post("/", (async (req: Request, res: Response) => {
     const { description, priority, status, dueDate } = req.body;
 
     try {
-        const data = await taskService.create({
+        await taskService.create({
             description,
             status,
             priority,
             dueDate
         });
 
-        res.status(201).json(data);
+        res.status(201).send("Tarefa criada com sucesso!");
     }
     catch (error) {
         res.send("Error");
@@ -49,9 +49,9 @@ router.patch("/:id", (async (req: Request, res: Response) => {
     const { id } = req.params;
 
     try {
-        const updateTask = await taskService.editTask(id, { description, priority, status, dueDate });
+        await taskService.editTask(id, { description, priority, status, dueDate });
 
-        res.status(201).json(updateTask);
+        res.status(201).send("Atualização na tarefa feita com sucesso!");
     }
     catch (error) {
         res.send("Error");
@@ -64,7 +64,7 @@ router.delete("/:id", (async (req: Request, res: Response) => {
     try {
         await taskService.deleteTask(id);
 
-        res.status(201).send("Excluído com sucesso");
+        res.status(201).send("Terefa excluída com sucesso!");
     }
     catch (error) {
         res.send("Error");

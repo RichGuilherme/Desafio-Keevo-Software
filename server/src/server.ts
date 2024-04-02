@@ -11,9 +11,7 @@ app.use(cors({
     methods: ["POST", "GET", "HEAD", "DELETE", "PATCH", "PUT"]
 }));
 
-const port = 4000;
-
-
+const port = 5002;
 
 app.use("/tasks", taskRoute);
 
