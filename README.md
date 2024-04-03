@@ -33,11 +33,11 @@
     ```sh
    npm install 
    ```
-4. Na pasta server inicio o banco de dados com o dokcker:
+4. Na pasta server inicio o docker:
    ```sh
    docker compose up -d
    ```
-5. Iniciar o servidor na client e server com:
+5. Iniciar o servidor na pasta client:
    ```sh
    npm run dev
    ```
