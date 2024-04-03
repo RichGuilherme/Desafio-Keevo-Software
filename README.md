@@ -1,7 +1,7 @@
 ## Informações sobre o projeto
 
 ### Sobre
-<p>O projeto é uma lista de tarefas com front-end e back-end, simples para criação, edição e delete das tarefas.</p>
+<p>O projeto é uma lista de tarefas com front-end e back-end, simples para criação, edição, filtragem e delete das tarefas.</p>
 
 <p>Link para o design feito no figma: </p>
 
