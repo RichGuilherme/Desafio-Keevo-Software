@@ -89,9 +89,10 @@
 }
 
 .task__cardStatus {
-    min-width: 117px;
     display: flex;
     justify-content: center;
+    
+    min-width: 120px;
 }
 
 .task__btnStatus {
