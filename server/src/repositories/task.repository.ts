@@ -1,12 +1,13 @@
 import { ITask, ITaskRepository, TaskCreate, TaskFilter, } from "../interfaces/task.interface";
-import { prisma } from "../../prisma/prismaClient";
-import { Prisma, TaskStatus } from "@prisma/client";
+import { Prisma, TaskStatus,PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 
 class TaskRepositoryPrisma implements ITaskRepository {
     async create({ description, status, priority, dueDate }: TaskCreate): Promise<ITask> {
-
-        const result = await prisma.task.create({
+        
+        return await prisma.task.create({
             data: {
                 description,
                 status,
@@ -14,8 +15,6 @@ class TaskRepositoryPrisma implements ITaskRepository {
                 dueDate
             }
         });
-
-        return result;
     }
 
     async getAll(): Promise<TaskCreate[]> {

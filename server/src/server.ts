@@ -5,6 +5,7 @@ import cors from "cors";
 const app = Express();
 app.use(Express.json());
 
+
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,

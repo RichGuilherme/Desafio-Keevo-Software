@@ -1,16 +1,17 @@
 
 FROM node:latest
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
-COPY package.json .
-COPY package-lock.json .
-
+COPY package*.json ./
+COPY prisma ./prisma
 
 RUN npm install
 
-COPY . .
+COPY . . 
 
-EXPOSE 3000
+RUN npx prisma generate
 
-CMD ["npm","run", "dev"]
+EXPOSE 5002
+
+CMD [ "npm", "run", "dev" ]

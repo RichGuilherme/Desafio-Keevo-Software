@@ -21,7 +21,7 @@ router.get("/", (async (req: Request, res: Response) => {
         res.status(201).json(taskList);
     }
     catch (error) {
-        res.send("Error teste");
+        res.send(error);
     }
 }));
 
@@ -39,7 +39,7 @@ router.post("/", (async (req: Request, res: Response) => {
         res.status(201).send("Tarefa criada com sucesso!");
     }
     catch (error) {
-        res.send("Error");
+        res.send(error);
     }
 }));
 
