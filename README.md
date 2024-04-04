@@ -22,8 +22,15 @@
 - **Docker**
 
 ### Como Executar o projeto
-<p> - Primeiro pré-requisitor é ter o nodeJs instalado na máquina. Você pode baixar através desse link: https://nodejs.org/en/download.</p>
-<p> - Segundo passor é ter um gerenciador de pacotes para nodeJs. Os dois podem ser baixados atrevés desses links: https://docs.npmjs.com/cli/v6/commands/npm-install ou https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable  </p>
+#### Pré-requisitos
+
+<p> - Primeiro é ter o nodeJs instalado na máquina. Você pode baixar através desse link: https://nodejs.org/en/download.</p>
+<p> - Segundo é necessario ter um gerenciador de pacotes para nodeJs. Você pode baixar um dos dois gerenciadores atrevés desses links:</p>
+
+[NPM](https://docs.npmjs.com/cli/v6/commands/npm-install) ou
+[YARN]( https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable )
+
+#### Execução
 
 1. Clona o repositório:
    ```sh
