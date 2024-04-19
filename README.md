@@ -34,17 +34,9 @@
 
 1. Clona o repositório:
    ```sh
-   git clone https://github.com/RichGuilherme/Desafio-Keevo-Software.git
+   git clone https://github.com/RichGuilherme/task_list.git
    ```
-2. Instalar as dependências nas pastas client e server:
-    ```sh
-   npm install 
-   ```
-4. Na pasta server inicio o docker:
+2. Iniciar o docker:
    ```sh
    docker compose up -d
-   ```
-5. Iniciar o servidor na pasta client:
-   ```sh
-   npm run dev
    ```
