@@ -1,21 +1,21 @@
 version: '3.9'
 
 services:
-  app:
-    build: .
-    container_name: tasklist_app
+  api:
+    build: ./server
+    container_name: tasklist_api
     ports:
       - 5002:5002
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app/server
     links:
       - database
     depends_on:
       - database
     env_file:
-      - ./.env
-    command: bash -c "sleep 10 && npx prisma migrate dev && npm run dev"
-    
+      - ./server/.env
+    command: bash -c "sleep 20 && npm run migrate-dev && npm run dev"
+
   database:
     image: postgres
     container_name: database_taskList_api
@@ -29,6 +29,15 @@ services:
     volumes:
       - pgdata:/data/postgres
 
+  app:
+    build: ./client
+    container_name: app
+    image: app
+    volumes:
+      - ./app:/app/app
+    ports:
+      - 3001:3001
+  
 volumes:
   pgdata:
     driver: local

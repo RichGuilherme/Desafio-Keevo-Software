@@ -4,7 +4,11 @@
   "description": "Api task list",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev  --respawn --transpile-only  --ignore-watch node_modules ./src/server "
+    "dev": "ts-node-dev  --respawn --transpile-only  --ignore-watch node_modules ./src/server ",
+    "migrate-dev": "prisma migrate dev"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   },
   "keywords": [],
   "author": "Richard Guilherme",
