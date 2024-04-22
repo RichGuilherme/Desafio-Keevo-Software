@@ -40,3 +40,7 @@
    ```sh
    docker compose up -d
    ```
+3. Coloque no seu navegador:
+   ```sh
+   localhost:3001
+   ```
